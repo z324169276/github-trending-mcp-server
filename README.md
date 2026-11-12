@@ -1,4 +1,4 @@
-# github-trending-mcp
+# github-trending-mcp-server
 
 GitHub 趋势榜 MCP Server。让 Claude Code、Trae、Cursor、Claude Desktop 等支持 MCP 的客户端直接查询 GitHub 热门仓库、搜索项目、读取仓库详情、横向对比技术选型。
 
@@ -17,22 +17,22 @@ GitHub 趋势榜 MCP Server。让 Claude Code、Trae、Cursor、Claude Desktop �
 
 需要 Node.js 18 或更高版本。
 
-### Claude Code
+### 一行命令（npx）
 
 ```bash
-claude mcp add github-trending -- node /绝对路径/github-trending-mcp/src/server.js
+claude mcp add github-trending -- npx -y github-trending-mcp-server
 ```
 
-### Claude Desktop / Cursor / Trae
+### 手动配置
 
-在 MCP 配置文件中加入：
+Claude Desktop / Cursor / Trae 等客户端的 MCP 配置文件中加入：
 
 ```json
 {
   "mcpServers": {
     "github-trending": {
-      "command": "node",
-      "args": ["/绝对路径/github-trending-mcp/src/server.js"],
+      "command": "npx",
+      "args": ["-y", "github-trending-mcp-server"],
       "env": {
         "GITHUB_TOKEN": "ghp_你的token"
       }
@@ -41,7 +41,22 @@ claude mcp add github-trending -- node /绝对路径/github-trending-mcp/src/ser
 }
 ```
 
-Windows 路径要写成 `E:\\path\\to\\github-trending-mcp\\src\\server.js`（双反斜杠）。
+### 本地源码运行
+
+clone 后直接指向入口文件，适合改代码时调试：
+
+```json
+{
+  "mcpServers": {
+    "github-trending": {
+      "command": "node",
+      "args": ["/绝对路径/github-trending-mcp-server/src/server.js"]
+    }
+  }
+}
+```
+
+Windows 路径要写成双反斜杠，例如 `E:\\path\\to\\github-trending-mcp-server\\src\\server.js`。
 
 ## 关于 GitHub Token
 
@@ -79,7 +94,7 @@ GitHub 官方没有公开 trending 接口，本项目的热门榜走 GitHub Sear
 ## 目录结构
 
 ```
-github-trending-mcp/
+github-trending-mcp-server/
 ├─ package.json
 └─ src/
    ├─ server.js     # MCP stdio 协议实现（JSON-RPC 2.0）

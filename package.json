@@ -1,10 +1,10 @@
 {
-  "name": "github-trending-mcp",
+  "name": "github-trending-mcp-server",
   "version": "1.0.0",
   "description": "GitHub 趋势榜 MCP Server：查询热门仓库、搜索项目、查看详情与横向对比，零依赖。",
   "type": "module",
   "bin": {
-    "github-trending-mcp": "src/server.js"
+    "github-trending-mcp-server": "src/server.js"
   },
   "files": [
     "src",
