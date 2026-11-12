@@ -1,0 +1,30 @@
+{
+  "name": "github-trending-mcp",
+  "version": "1.0.0",
+  "description": "GitHub 趋势榜 MCP Server：查询热门仓库、搜索项目、查看详情与横向对比，零依赖。",
+  "type": "module",
+  "bin": {
+    "github-trending-mcp": "src/server.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "github",
+    "trending",
+    "open-source"
+  ],
+  "license": "MIT",
+  "author": "z324169276",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/z324169276/github-trending-mcp.git"
+  }
+}
